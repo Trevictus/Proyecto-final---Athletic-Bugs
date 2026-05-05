@@ -66,8 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   subscribe((state) => {
-    window.gameState = state;
-
     upperRange.value = String(state.upperBody);
     lowerRange.value = String(state.lowerBody);
     noteField.value = state.note;
@@ -107,18 +105,25 @@ function renderHistory(container, history) {
       minute: "2-digit"
     }).format(new Date(entry.createdAt));
 
-    item.innerHTML = `
-      <div>
-        <strong>${moodLabels[entry.mood] ?? moodLabels.focused}</strong>
-        <p>${entry.note}</p>
-      </div>
-      <div class="history-list__stats">
-        <span>S ${entry.upperBody}</span>
-        <span>I ${entry.lowerBody}</span>
-        <time datetime="${entry.createdAt}">${stamp}</time>
-      </div>
-    `;
+    const metaDiv = document.createElement("div");
+    const moodStrong = document.createElement("strong");
+    moodStrong.textContent = moodLabels[entry.mood] ?? moodLabels.focused;
+    const noteParagraph = document.createElement("p");
+    noteParagraph.textContent = entry.note;
+    metaDiv.append(moodStrong, noteParagraph);
 
+    const statsDiv = document.createElement("div");
+    statsDiv.className = "history-list__stats";
+    const upperSpan = document.createElement("span");
+    upperSpan.textContent = `S ${entry.upperBody}`;
+    const lowerSpan = document.createElement("span");
+    lowerSpan.textContent = `I ${entry.lowerBody}`;
+    const timeEl = document.createElement("time");
+    timeEl.setAttribute("datetime", entry.createdAt);
+    timeEl.textContent = stamp;
+    statsDiv.append(upperSpan, lowerSpan, timeEl);
+
+    item.append(metaDiv, statsDiv);
     container.append(item);
   });
 }
