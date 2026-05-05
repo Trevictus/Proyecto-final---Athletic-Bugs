@@ -149,50 +149,50 @@
   clip-path: polygon(18% 0, 82% 0, 100% 14%, 100% 100%, 0 100%, 0 14%);
 }
 
-.buggy[data-upper-tier="0"] {
+.buggy[data-head-tier="0"] .buggy__face {
   --buggy-head-color: #9cd39f;
   --buggy-head-shadow: #76a179;
+}
+
+.buggy[data-head-tier="1"] .buggy__face {
+  --buggy-head-color: #8fc678;
+  --buggy-head-shadow: #69965a;
+}
+
+.buggy[data-head-tier="2"] .buggy__face {
+  --buggy-head-color: #74c468;
+  --buggy-head-shadow: #58914c;
+}
+
+.buggy[data-torso-tier="0"] .buggy__core,
+.buggy[data-torso-tier="0"] .buggy__arm {
   --buggy-core-color: #d89563;
   --buggy-core-shadow: #bb7448;
 }
 
-.buggy[data-upper-tier="1"] {
-  --buggy-head-color: #8fc678;
-  --buggy-head-shadow: #69965a;
+.buggy[data-torso-tier="1"] .buggy__core,
+.buggy[data-torso-tier="1"] .buggy__arm {
   --buggy-core-color: #df8f47;
   --buggy-core-shadow: #b6672c;
 }
 
-.buggy[data-upper-tier="2"] {
-  --buggy-head-color: #74c468;
-  --buggy-head-shadow: #58914c;
-  --buggy-core-color: #ea8241;
-  --buggy-core-shadow: #be5f28;
-}
-
-.buggy[data-upper-tier="3"] {
-  --buggy-head-color: #63d152;
-  --buggy-head-shadow: #46a03a;
+.buggy[data-torso-tier="2"] .buggy__core,
+.buggy[data-torso-tier="2"] .buggy__arm {
   --buggy-core-color: #f16a2c;
   --buggy-core-shadow: #bf4717;
 }
 
-.buggy[data-lower-tier="0"] {
+.buggy[data-leg-tier="0"] .buggy__leg {
   --buggy-leg-color: #7d8cc6;
   --buggy-leg-shadow: #55619a;
 }
 
-.buggy[data-lower-tier="1"] {
+.buggy[data-leg-tier="1"] .buggy__leg {
   --buggy-leg-color: #5c83d0;
   --buggy-leg-shadow: #435ea5;
 }
 
-.buggy[data-lower-tier="2"] {
-  --buggy-leg-color: #4d9db6;
-  --buggy-leg-shadow: #37798e;
-}
-
-.buggy[data-lower-tier="3"] {
+.buggy[data-leg-tier="2"] .buggy__leg {
   --buggy-leg-color: #4ab06c;
   --buggy-leg-shadow: #2f8450;
 }
