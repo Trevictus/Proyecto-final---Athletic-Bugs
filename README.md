@@ -1,4 +1,5 @@
-# Athletic Bugs
+# Athletic Bugs - Grupo 5
+**Idea original de : Rocio Luque, Francisco Alba, Juan Arias y Víctor Gómez**
 
 Aplicacion web mobile-first construida solo con HTML5, CSS3 y JavaScript moderno. Toda la experiencia vive dentro de un shell que simula un iPhone y gira alrededor de Buggy, un avatar modular que evoluciona segun tres entradas de usuario:
 
