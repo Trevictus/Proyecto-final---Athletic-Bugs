@@ -20,8 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const moodPicker = document.querySelector("#mood-picker");
   const historyList = document.querySelector("#session-history");
   const resetButton = document.querySelector("#reset-button");
+  const sceneOverlay = document.querySelector("#scene-overlay");
+  const sceneCloseButton = document.querySelector("#scene-close");
 
-  if (!form || !upperRange || !lowerRange || !noteField || !upperOutput || !lowerOutput || !moodPicker || !historyList || !resetButton) {
+  if (!form || !upperRange || !lowerRange || !noteField || !upperOutput || !lowerOutput || !moodPicker || !historyList || !resetButton || !sceneOverlay || !sceneCloseButton) {
     return;
   }
 
@@ -59,10 +61,22 @@ document.addEventListener("DOMContentLoaded", () => {
       mood: currentMood,
       note: noteField.value.trim() || "Sesion registrada sin notas."
     });
+
+    openSceneOverlay(sceneOverlay);
   });
 
   resetButton.addEventListener("click", () => {
     resetState();
+  });
+
+  sceneCloseButton.addEventListener("click", () => {
+    closeSceneOverlay(sceneOverlay);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeSceneOverlay(sceneOverlay);
+    }
   });
 
   subscribe((state) => {
@@ -82,6 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
     renderHistory(historyList, state.history);
   });
 });
+
+function openSceneOverlay(overlay) {
+  overlay.classList.remove("is-hidden");
+  overlay.setAttribute("aria-hidden", "false");
+}
+
+function closeSceneOverlay(overlay) {
+  overlay.classList.add("is-hidden");
+  overlay.setAttribute("aria-hidden", "true");
+}
 
 function paintMoodSelection(container, currentMood) {
   const moodButtons = container.querySelectorAll("[data-mood-option]");

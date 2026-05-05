@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Athletic Bugs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./ui.css">
   <link rel="stylesheet" href="./buggy.css">
 </head>
@@ -11,36 +14,76 @@
   <main class="desktop-stage">
     <section class="phone-shell" aria-label="Aplicacion Athletic Bugs dentro de un iPhone">
       <div class="phone-shell__viewport">
+        <div class="scene-overlay is-hidden" id="scene-overlay" aria-hidden="true">
+          <button class="scene-overlay__close" id="scene-close" type="button" aria-label="Cerrar escenario">X</button>
+          <div class="scene-overlay__background">
+            <div class="scene-overlay__badge" id="scene-rank">Nivel Base</div>
+            <div class="scene-overlay__avatar-zone">
+              <div class="buggy buggy--scene" id="buggy-scene-avatar" data-upper-tier="2" data-lower-tier="2" data-mood="focused" aria-label="Avatar de Buggy dentro del escenario">
+                <div class="buggy__shadow"></div>
+                <div class="buggy__head">
+                  <div class="buggy__horn buggy__horn--left"></div>
+                  <div class="buggy__horn buggy__horn--right"></div>
+                  <div class="buggy__face">
+                    <div class="buggy__eyes">
+                      <span class="buggy__eye"></span>
+                      <span class="buggy__eye"></span>
+                    </div>
+                    <div class="buggy__mouth"></div>
+                  </div>
+                </div>
+                <div class="buggy__torso">
+                  <div class="buggy__core"></div>
+                  <div class="buggy__arm buggy__arm--left"></div>
+                  <div class="buggy__arm buggy__arm--right"></div>
+                </div>
+                <div class="buggy__legs">
+                  <div class="buggy__leg buggy__leg--left"></div>
+                  <div class="buggy__leg buggy__leg--right"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="app-screen">
-          <header class="hero-card">
+          <header class="hero-card pixel-panel">
             <p class="hero-card__eyebrow">Athletic Bugs</p>
             <div class="hero-card__headline">
               <div>
-                <h1>Entrena y evoluciona a Buggy</h1>
-                <p id="status-copy">Cada sesion cambia su cabeza, torso y piernas.</p>
+                <h1>Retro Gym Tracker</h1>
+                <p id="status-copy">Cada sesion modifica cabeza, torso y patas en tiempo real.</p>
               </div>
-              <div class="hero-card__level" id="buggy-rank">Nivel Base</div>
+              <div class="hero-card__level pixel-chip" id="buggy-rank">Nivel Base</div>
             </div>
           </header>
 
-          <section class="buggy-panel">
+          <section class="buggy-panel pixel-panel">
+            <div class="buggy-panel__marquee">
+              <span>MUEVE LAS PATAS</span>
+              <span>RETRO GYM MODE</span>
+            </div>
             <div class="buggy-panel__metrics" aria-label="Resumen del estado actual">
-              <article>
+              <article class="pixel-stat">
                 <span>Superior</span>
                 <strong id="upper-output">4</strong>
               </article>
-              <article>
+              <article class="pixel-stat">
                 <span>Inferior</span>
                 <strong id="lower-output">4</strong>
               </article>
-              <article>
+              <article class="pixel-stat">
                 <span>Animo</span>
                 <strong id="mood-output">Enfocado</strong>
               </article>
             </div>
 
             <div class="buggy-stage">
-              <div class="buggy-aura"></div>
+              <div class="buggy-stage__room"></div>
+              <div class="buggy-stage__banner">NO PAIN NO GAIN</div>
+              <div class="buggy-stage__decor buggy-stage__decor--left"></div>
+              <div class="buggy-stage__decor buggy-stage__decor--right"></div>
+              <div class="buggy-stage__rug"></div>
               <div class="buggy" id="buggy-avatar" data-upper-tier="2" data-lower-tier="2" data-mood="focused" aria-label="Avatar dinamico Buggy">
                 <div class="buggy__shadow"></div>
                 <div class="buggy__head">
@@ -67,13 +110,13 @@
             </div>
           </section>
 
-          <section class="panel-card">
+          <section class="panel-card pixel-panel">
             <div class="panel-card__header">
               <div>
                 <p class="panel-card__eyebrow">Registro</p>
-                <h2>Ultima sesion</h2>
+                <h2>Cabina De Entreno</h2>
               </div>
-              <button class="ghost-button" id="reset-button" type="button">Reset</button>
+              <button class="ghost-button pixel-button pixel-button--muted" id="reset-button" type="button">Reset</button>
             </div>
 
             <form id="training-form" class="training-form">
@@ -102,15 +145,15 @@
                 <textarea id="session-note" name="note" rows="3" maxlength="90" placeholder="Ej: hombros fuertes, piernas pesadas"></textarea>
               </label>
 
-              <button class="primary-button" type="submit">Guardar evolucion</button>
+              <button class="primary-button pixel-button" type="submit">Aplicar Entreno</button>
             </form>
           </section>
 
-          <section class="panel-card panel-card--history">
+          <section class="panel-card panel-card--history pixel-panel">
             <div class="panel-card__header">
               <div>
                 <p class="panel-card__eyebrow">Bitacora</p>
-                <h2>Ultimos cambios</h2>
+                <h2>Registro Del Gym</h2>
               </div>
             </div>
             <ul id="session-history" class="history-list" aria-live="polite"></ul>
