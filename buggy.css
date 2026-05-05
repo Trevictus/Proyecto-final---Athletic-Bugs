@@ -1,0 +1,249 @@
+.buggy {
+  --buggy-upper-scale: 1;
+  --buggy-lower-scale: 1;
+  --buggy-balance: 10;
+  --buggy-head-hue: 166;
+  --buggy-core-hue: 22;
+  --buggy-leg-hue: 188;
+  position: relative;
+  width: 182px;
+  display: grid;
+  justify-items: center;
+  transform: translateY(8px);
+}
+
+.buggy__shadow {
+  position: absolute;
+  inset: auto 24px 4px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(4, 9, 17, 0.48);
+  filter: blur(10px);
+}
+
+.buggy__head,
+.buggy__torso,
+.buggy__legs {
+  position: relative;
+}
+
+.buggy__head {
+  width: 126px;
+  height: 112px;
+  z-index: 3;
+}
+
+.buggy__face {
+  position: absolute;
+  inset: 16px 8px 0;
+  border-radius: 42% 42% 48% 48%;
+  background:
+    radial-gradient(circle at 30% 28%, rgba(255, 255, 255, 0.42), transparent 18%),
+    linear-gradient(180deg, hsl(var(--buggy-head-hue) 88% 72%), hsl(var(--buggy-head-hue) 78% 58%));
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -12px 18px rgba(0, 0, 0, 0.15);
+}
+
+.buggy__horn {
+  position: absolute;
+  top: 6px;
+  width: 26px;
+  height: 40px;
+  border-radius: 16px 16px 0 0;
+  background: linear-gradient(180deg, #f8fafc, #95a3b6);
+}
+
+.buggy__horn--left {
+  left: 18px;
+  transform: rotate(-24deg);
+}
+
+.buggy__horn--right {
+  right: 18px;
+  transform: rotate(24deg);
+}
+
+.buggy__eyes {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding-top: 32px;
+}
+
+.buggy__eye {
+  width: 16px;
+  height: 20px;
+  border-radius: 50%;
+  background: #07111f;
+  box-shadow: inset 0 -4px 0 rgba(255, 255, 255, 0.14);
+}
+
+.buggy__mouth {
+  width: 44px;
+  height: 16px;
+  margin: 16px auto 0;
+  border-bottom: 4px solid rgba(7, 17, 31, 0.72);
+  border-radius: 0 0 30px 30px;
+}
+
+.buggy__torso {
+  width: 154px;
+  height: 134px;
+  margin-top: -8px;
+  transform: scaleX(var(--buggy-upper-scale));
+  transform-origin: center top;
+  z-index: 2;
+}
+
+.buggy__core {
+  position: absolute;
+  inset: 18px 24px 0;
+  border-radius: 30px 30px 24px 24px;
+  background:
+    radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.38), transparent 20%),
+    linear-gradient(180deg, hsl(var(--buggy-core-hue) 100% 72%), hsl(calc(var(--buggy-core-hue) + 10) 86% 58%));
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -16px 20px rgba(0, 0, 0, 0.16);
+}
+
+.buggy__core::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  width: 34px;
+  height: 34px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.12);
+}
+
+.buggy__arm {
+  position: absolute;
+  top: 28px;
+  width: 30px;
+  height: 84px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, hsl(var(--buggy-core-hue) 92% 68%), hsl(calc(var(--buggy-core-hue) + 6) 76% 50%));
+  border: 3px solid rgba(255, 255, 255, 0.12);
+}
+
+.buggy__arm--left {
+  left: 4px;
+  transform: rotate(18deg);
+}
+
+.buggy__arm--right {
+  right: 4px;
+  transform: rotate(-18deg);
+}
+
+.buggy__legs {
+  width: 118px;
+  height: 132px;
+  margin-top: -6px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  transform: scaleX(var(--buggy-lower-scale));
+  transform-origin: center top;
+}
+
+.buggy__leg {
+  width: 42px;
+  height: 116px;
+  border-radius: 24px 24px 18px 18px;
+  background:
+    linear-gradient(180deg, hsl(var(--buggy-leg-hue) 88% 72%), hsl(calc(var(--buggy-leg-hue) + 8) 70% 54%));
+  border: 3px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -18px 18px rgba(0, 0, 0, 0.18);
+}
+
+.buggy[data-upper-tier="0"] {
+  --buggy-head-hue: 186;
+  --buggy-core-hue: 14;
+}
+
+.buggy[data-upper-tier="1"] {
+  --buggy-head-hue: 166;
+  --buggy-core-hue: 22;
+}
+
+.buggy[data-upper-tier="2"] {
+  --buggy-head-hue: 152;
+  --buggy-core-hue: 28;
+}
+
+.buggy[data-upper-tier="3"] {
+  --buggy-head-hue: 136;
+  --buggy-core-hue: 34;
+}
+
+.buggy[data-lower-tier="0"] {
+  --buggy-leg-hue: 210;
+}
+
+.buggy[data-lower-tier="1"] {
+  --buggy-leg-hue: 192;
+}
+
+.buggy[data-lower-tier="2"] {
+  --buggy-leg-hue: 176;
+}
+
+.buggy[data-lower-tier="3"] {
+  --buggy-leg-hue: 158;
+}
+
+.buggy[data-mood="focused"] .buggy__mouth {
+  width: 46px;
+}
+
+.buggy[data-mood="charged"] {
+  animation: buggy-pulse 1.2s ease-in-out infinite;
+}
+
+.buggy[data-mood="charged"] .buggy__eye {
+  transform: scaleY(1.2);
+  background: #081321;
+  box-shadow: 0 0 12px rgba(255, 196, 92, 0.35);
+}
+
+.buggy[data-mood="playful"] .buggy__mouth {
+  width: 58px;
+  border-bottom-width: 5px;
+}
+
+.buggy[data-mood="playful"] .buggy__horn--left {
+  transform: rotate(-30deg) translateY(2px);
+}
+
+.buggy[data-mood="playful"] .buggy__horn--right {
+  transform: rotate(30deg) translateY(-2px);
+}
+
+.buggy[data-mood="tired"] {
+  transform: translateY(14px);
+}
+
+.buggy[data-mood="tired"] .buggy__eye {
+  height: 12px;
+  border-radius: 12px;
+}
+
+.buggy[data-mood="tired"] .buggy__mouth {
+  width: 32px;
+  border-bottom-color: rgba(7, 17, 31, 0.48);
+}
+
+@keyframes buggy-pulse {
+  0%,
+  100% {
+    transform: translateY(8px) scale(1);
+  }
+
+  50% {
+    transform: translateY(2px) scale(1.02);
+  }
+}

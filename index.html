@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athletic Bugs</title>
+  <link rel="stylesheet" href="./ui.css">
+  <link rel="stylesheet" href="./buggy.css">
+</head>
+<body>
+  <main class="desktop-stage">
+    <section class="phone-shell" aria-label="Aplicacion Athletic Bugs dentro de un iPhone">
+      <div class="phone-shell__viewport">
+        <div class="app-screen">
+          <header class="hero-card">
+            <p class="hero-card__eyebrow">Athletic Bugs</p>
+            <div class="hero-card__headline">
+              <div>
+                <h1>Entrena y evoluciona a Buggy</h1>
+                <p id="status-copy">Cada sesion cambia su cabeza, torso y piernas.</p>
+              </div>
+              <div class="hero-card__level" id="buggy-rank">Nivel Base</div>
+            </div>
+          </header>
+
+          <section class="buggy-panel">
+            <div class="buggy-panel__metrics" aria-label="Resumen del estado actual">
+              <article>
+                <span>Superior</span>
+                <strong id="upper-output">4</strong>
+              </article>
+              <article>
+                <span>Inferior</span>
+                <strong id="lower-output">4</strong>
+              </article>
+              <article>
+                <span>Animo</span>
+                <strong id="mood-output">Enfocado</strong>
+              </article>
+            </div>
+
+            <div class="buggy-stage">
+              <div class="buggy-aura"></div>
+              <div class="buggy" id="buggy-avatar" data-upper-tier="2" data-lower-tier="2" data-mood="focused" aria-label="Avatar dinamico Buggy">
+                <div class="buggy__shadow"></div>
+                <div class="buggy__head">
+                  <div class="buggy__horn buggy__horn--left"></div>
+                  <div class="buggy__horn buggy__horn--right"></div>
+                  <div class="buggy__face">
+                    <div class="buggy__eyes">
+                      <span class="buggy__eye"></span>
+                      <span class="buggy__eye"></span>
+                    </div>
+                    <div class="buggy__mouth"></div>
+                  </div>
+                </div>
+                <div class="buggy__torso">
+                  <div class="buggy__core"></div>
+                  <div class="buggy__arm buggy__arm--left"></div>
+                  <div class="buggy__arm buggy__arm--right"></div>
+                </div>
+                <div class="buggy__legs">
+                  <div class="buggy__leg buggy__leg--left"></div>
+                  <div class="buggy__leg buggy__leg--right"></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel-card">
+            <div class="panel-card__header">
+              <div>
+                <p class="panel-card__eyebrow">Registro</p>
+                <h2>Ultima sesion</h2>
+              </div>
+              <button class="ghost-button" id="reset-button" type="button">Reset</button>
+            </div>
+
+            <form id="training-form" class="training-form">
+              <label class="training-form__field" for="upper-body-range">
+                <span>Tren superior</span>
+                <input id="upper-body-range" name="upperBody" type="range" min="0" max="10" step="1" value="4">
+              </label>
+
+              <label class="training-form__field" for="lower-body-range">
+                <span>Tren inferior</span>
+                <input id="lower-body-range" name="lowerBody" type="range" min="0" max="10" step="1" value="4">
+              </label>
+
+              <fieldset class="training-form__field training-form__field--mood">
+                <legend>Estado de animo</legend>
+                <div class="mood-picker" id="mood-picker">
+                  <button type="button" class="mood-pill is-active" data-mood-option="focused">Enfocado</button>
+                  <button type="button" class="mood-pill" data-mood-option="charged">Cargado</button>
+                  <button type="button" class="mood-pill" data-mood-option="playful">Jugueton</button>
+                  <button type="button" class="mood-pill" data-mood-option="tired">Cansado</button>
+                </div>
+              </fieldset>
+
+              <label class="training-form__field" for="session-note">
+                <span>Nota rapida</span>
+                <textarea id="session-note" name="note" rows="3" maxlength="90" placeholder="Ej: hombros fuertes, piernas pesadas"></textarea>
+              </label>
+
+              <button class="primary-button" type="submit">Guardar evolucion</button>
+            </form>
+          </section>
+
+          <section class="panel-card panel-card--history">
+            <div class="panel-card__header">
+              <div>
+                <p class="panel-card__eyebrow">Bitacora</p>
+                <h2>Ultimos cambios</h2>
+              </div>
+            </div>
+            <ul id="session-history" class="history-list" aria-live="polite"></ul>
+          </section>
+        </div>
+      </div>
+
+      <svg
+        class="phone-shell__frame"
+        viewBox="0 0 1024 2048"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <image href="./assets/iphone-frame.png" width="1024" height="2048" preserveAspectRatio="xMidYMid meet"></image>
+      </svg>
+    </section>
+  </main>
+
+  <script type="module" src="./ui.js"></script>
+</body>
+</html>
