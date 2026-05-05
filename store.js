@@ -150,5 +150,3 @@ function getStatusCopy(state, balance) {
 
   return moodCopy[state.mood] ?? moodCopy.focused;
 }
-
-window.gameState = getState();
